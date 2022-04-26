@@ -31,7 +31,7 @@ craftSellPrice = st.number_input(f'Enter the sell price of {selected_item}')
 
 if submittedCraft:
 	running = 0
-	for i in range(sts.craftRecipies[selected_item]):	
+	for i in (sts.craftRecipies[selected_item]):	
 		running += int(getattr(sts, i[0]))
 
 	st.write(running)
