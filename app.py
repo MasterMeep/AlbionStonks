@@ -4,7 +4,7 @@ import json
 
 sts = st.session_state
 
-if 'ls' not in sts:
+if 'init' not in sts:
 	sts.craftRecipies = {'thing1': [['thing1', 25], ['thing2', 50]],'thing2': [['thing1', 25]]}
 	sts.refineRecipies = {}
 	sts.cityCaftBonus = {}
@@ -15,6 +15,7 @@ if 'ls' not in sts:
 	sts.savedItems = {}
 	sts.craftItems = list(sts.craftRecipies.keys())
 	sts.refineItems = list(sts.refineRecipies.keys())
+	sts.init = 'init'
 
 selected_city = st.selectbox("Select A City", sts.cities)
 selected_item = st.selectbox('Select An Item To Craft', sts.craftItems)
