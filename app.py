@@ -38,7 +38,7 @@ if submittedCraft:
 	sts.savedCraft['Craft Price'][selected_item] = running
 	sts.savedCraft['Sell Price'][selected_item] = craftSellPrice
 	sts.savedCraft['Profit Per Craft'][selected_item] = craftSellPrice-running
-	sts.savedCraft['% Profit'] = str(round(round((craftSellPrice)/running, 4)*100, 2))+'%'
+	sts.savedCraft['% Profit'] = str(round(round((craftSellPrice-running)/running, 4)*100, 2))+'%'
 	
 st.table(sts.savedCraft)
 
