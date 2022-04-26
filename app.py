@@ -23,5 +23,5 @@ with st.form(key='columns_in_form'):
         col.number_input(f"Enter price of {sts.craftRecipies[selected_item][i]}", key=i)
     submitted = st.form_submit_button('Submit')
 	
-print(cols)
+print(cols[0][0])
 selected_item = st.selectbox('Select An Item To Refine', sts.refineItems)
