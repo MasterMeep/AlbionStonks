@@ -25,7 +25,7 @@ with st.form(key='columns_in_form'):
         num_of_inps += 1
     submittedCraft = st.form_submit_button('Submit')
 
-craftSellPrice = st.number_input(f'Enter the sell price of {sts.craftRecipies[selected_item][i]}')
+craftSellPrice = st.number_input(f'Enter the sell price of {selected_item}')
 
 if submittedCraft:
 	running = 0
