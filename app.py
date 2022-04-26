@@ -38,7 +38,7 @@ if submittedCraft:
 try: 
 	sts.savedCraft[selectedItem] = running
 	st.write(sts.savedCraft)
-except: pass
+except: st.write('aaaa')
 
 st.table(sts.savedCraft)
 
