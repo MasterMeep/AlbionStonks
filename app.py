@@ -24,5 +24,5 @@ with st.form(key='columns_in_form'):
     submittedCraft = st.form_submit_button('Submit')
 
 if submittedCraft:
-	print(sts.craft_inp_0)
+	st.write(sts.craft_inp_0)
 selected_item = st.selectbox('Select An Item To Refine', sts.refineItems)
