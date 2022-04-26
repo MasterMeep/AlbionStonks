@@ -37,6 +37,7 @@ if submittedCraft:
 		running += int(getattr(sts, i[0]))
 	sts.savedCraft[selected_item] = {'Price': running}
 
+del sts.savedCraft['Price']
 st.write(sts.savedCraft)
 st.table(sts.savedCraft)
 
