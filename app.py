@@ -35,9 +35,9 @@ if submittedCraft:
 	for i in (sts.craftRecipies[selected_item]):
 		sts.savedItems[i[0]] = int(getattr(sts, i[0]))
 		running += int(getattr(sts, i[0]))
-	sts.savedCraft[selected_item] = {'Price': running}
+	sts.savedCraft['Price'] = {selected_item: running}
 
-del sts.savedCraft['Price']
+sts.savedCraft = {key, val for key, val in sts.savedCraft.items() if val != 'Price'}
 st.write(sts.savedCraft)
 st.table(sts.savedCraft)
 
