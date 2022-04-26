@@ -28,7 +28,7 @@ with st.form(key='columns_in_form'):
         num_of_inps += 1
     submittedCraft = st.form_submit_button('Submit')
 
-craftSellPrice = st.number_input(f'Enter the sell price of {selected_item}')
+craftSellPrice = st.number_input(f'Enter the sell price of {selected_item}', step=1)
 
 if submittedCraft:
 	running = 0
@@ -36,8 +36,7 @@ if submittedCraft:
 		sts.savedItems[i[0]] = int(getattr(sts, i[0]))
 		running += int(getattr(sts, i[0]))
 	sts.savedCraft[selected_item] = running
-	try: st.table(sts.savedCraft)
-	except: pass
+	st.table(sts.savedCraft)
 	
 
 selected_item = st.selectbox('Select An Item To Refine', sts.refineItems)
