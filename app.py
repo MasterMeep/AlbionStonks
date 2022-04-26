@@ -10,7 +10,7 @@ if 'init' not in sts:
 	sts.cityCaftBonus = {}
 	sts.cityRefineBonus = {}
 	sts.cities = ['Bridgewatch', 'Caerleon', 'Fort Sterling', 'Lymhurst', 'Thetford']
-	sts.savedCraft = {'Craft Price': {}, 'Profit Per Craft': {}, '% Profit': {}}
+	sts.savedCraft = {'Craft Price': {}, 'Sell Price': {}, 'Profit Per Craft': {}, '% Profit': {}}
 	sts.savedRefine = {}
 	sts.savedItems = {}
 	sts.craftItems = list(sts.craftRecipies.keys())
@@ -39,8 +39,7 @@ if submittedCraft:
 	sts.savedCraft['Sell Price'][selected_item] = craftSellPrice
 	sts.savedCraft['Profit Per Craft'][selected_item] = craftSellPrice-running
 	sts.savedCraft['% Profit'] = str(round(round((craftSellPrice)/running, 4)*100, 2))+'%'
-
-st.write('aaaa', sts.savedCraft)
+	
 st.table(sts.savedCraft)
 
 st.write(f'Max Item')
