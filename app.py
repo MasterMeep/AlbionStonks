@@ -34,7 +34,7 @@ if submittedCraft:
 	running = 0
 	for i in (sts.craftRecipies[selected_item]):
 		sts.savedItems[i[0]] = int(getattr(sts, i[0]))
-		running += int(getattr(sts, i[0]))
+		running += int(getattr(sts, i[0]))*i[1]
 	sts.savedCraft['Craft Price'][selected_item] = running
 	sts.savedCraft['Sell Price'][selected_item] = craftSellPrice
 	sts.savedCraft['Profit Per Craft'][selected_item] = craftSellPrice-running
