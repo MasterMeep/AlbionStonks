@@ -5,7 +5,7 @@ import json
 sts = st.session_state
 
 if 'ls' not in sts:
-	sts.craftRecipies = {'thing1': ['thing1', 'thing2', 'thing3'], 'thing2': ['thing1', 'thing2', 'thing3', 'thing4']}
+	sts.craftRecipies = {'thing1': [['thing1', 25], ['thing2', 50]],'thing2': [['thing1', 25]]}
 	sts.refineRecipies = {}
 	sts.cityCaftBonus = {}
 	sts.cityRefineBonus = {}
@@ -21,7 +21,7 @@ with st.form(key='columns_in_form'):
     cols = st.columns(len(sts.craftRecipies[selected_item]))
     num_of_inps = 0
     for i, col in enumerate(cols):
-        col.number_input(f"Enter price of {sts.craftRecipies[selected_item][i]}", key=f"craft_inp_{i}")
+        col.number_input(f"Enter price of {sts.craftRecipies[selected_item][i][0]}", key=f"craft_inp_{i}")
         num_of_inps += 1
     submittedCraft = st.form_submit_button('Submit')
 
