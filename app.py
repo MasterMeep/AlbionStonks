@@ -10,7 +10,7 @@ if 'init' not in sts:
 	sts.cityCaftBonus = {}
 	sts.cityRefineBonus = {}
 	sts.cities = ['Bridgewatch', 'Caerleon', 'Fort Sterling', 'Lymhurst', 'Thetford']
-	sts.savedCraft = {}
+	sts.savedCraft = {'Craft Price': {}, 'Profit': {}, '% Profit': {}}
 	sts.savedRefine = {}
 	sts.savedItems = {}
 	sts.craftItems = list(sts.craftRecipies.keys())
@@ -35,10 +35,13 @@ if submittedCraft:
 	for i in (sts.craftRecipies[selected_item]):
 		sts.savedItems[i[0]] = int(getattr(sts, i[0]))
 		running += int(getattr(sts, i[0]))
-	sts.savedCraft[selected_item] = {'Price': running}
+	sts.savedCraft['Craft Price'][selected_item] = running
+	sts.savedCraft['Profit'][selected_item] = craftSellPrice-running
+	sts.savedCraft['% Profit'] = (craftSellPrice-running)/running
 
-del sts.savedCraft['Price']
 st.write(sts.savedCraft)
 st.table(sts.savedCraft)
+
+st.write(f'Max Item')
 
 selected_item = st.selectbox('Select An Item To Refine', sts.refineItems)
