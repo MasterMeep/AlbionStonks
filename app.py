@@ -34,6 +34,7 @@ if submittedCraft:
 	for i in (sts.craftRecipies[selected_item]):
 		sts.savedItems[i[0]] = int(getattr(sts, i[0]))
 		running += int(getattr(sts, i[0]))
+		st.write(sts.saveItems)
 
 	st.write(running)
 selected_item = st.selectbox('Select An Item To Refine', sts.refineItems)
