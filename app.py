@@ -5,7 +5,7 @@ import json
 sts = st.session_state
 
 if 'ls' not in sts:
-	sts.craftRecipies = {'thing1': ['thing1', 'thing2', 'thing3']}
+	sts.craftRecipies = {'thing1': ['thing1', 'thing2', 'thing3'], 'thing2': ['thing1', 'thing2', 'thing3', 'thing4']}
 	sts.refineRecipies = {}
 	sts.cityCaftBonus = {}
 	sts.cityRefineBonus = {}
