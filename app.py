@@ -11,7 +11,7 @@ if 'init' not in sts:
 	sts.cityRefineBonus = {}
 	sts.cities = ['Bridgewatch', 'Caerleon', 'Fort Sterling', 'Lymhurst', 'Thetford']
 	sts.savedCraft = {'Craft Price': {}, 'Sell Price': {}, 'Profit Per Craft': {}, '% Profit': {}}
-	sts.savedRefine = {}
+	sts.savedRefine = {'Craft Price': {}, 'Sell Price': {}, 'Profit Per Craft': {}, '% Profit': {}}
 	sts.savedItems = {}
 	sts.craftItems = list(sts.craftRecipies.keys())
 	sts.refineItems = list(sts.refineRecipies.keys())
@@ -47,12 +47,17 @@ selected_refine = st.selectbox('Select An Item To Refine', sts.refineItems)
 
 form = st.form("Refine Profits")
 item1 = form.number_input('Enter the price of one log')
-item2 = form.number_input('Enter the price of the plank')
+item2 = form.number_input('Enter the price of the plank') 
+sell = form.number_input('Enter the price of the plank') 
 
 submitRefine = form.form_submit_button("Submit")
 
 if submitRefine:
-	sts.savedRefine[selected_refine] = item1*sts.refineRecipies[selected_refine]+item2
+	buy = (item1*sts.refineRecipes[selected_refine]+item2)
+	sts.savedRefine['Craft Price'][selected_refine] = buy
+	sts.savedRefine['Sell Price'][selected_refine] = sell
+	sts.savedRefine['Profit Per Craft'][selected_refine] = sell-buy
+	sts.savedRefine['% Profit'][selected_refine] = str(round(round((sell-buy)/buy, 4)*100, 2))+'%'
 	
 st.table(sts.savedRefine)
 	
