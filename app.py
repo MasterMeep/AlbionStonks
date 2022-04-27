@@ -42,7 +42,7 @@ if submittedCraft:
 	
 st.table(sts.savedCraft)
 
-st.write(f'Max Profit/Craft: {max(sts.savedCraft, key=sts.savedCraft.get)}')
+st.write(f'Max Profit/Craft: {max(sts.savedCraft, key=sts.savedCraft.get.key)}')
 
 selected_refine = st.selectbox('Select An Item To Refine', sts.refineItems)
 
