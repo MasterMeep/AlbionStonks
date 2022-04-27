@@ -48,7 +48,7 @@ selected_refine = st.selectbox('Select An Item To Refine', sts.refineItems)
 form = st.form("Refine Profits")
 item1 = form.number_input('Enter the price of one log', step=1)
 item2 = form.number_input('Enter the price of the plank', step=1) 
-sell = form.number_input(f'Enter the sell price of {selected_refine}', step=1) 
+sell = form.number_input(f'Enter the sell price', step=1) 
 
 submitRefine = form.form_submit_button("Submit")
 
