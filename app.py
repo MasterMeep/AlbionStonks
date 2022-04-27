@@ -54,10 +54,10 @@ submitRefine = form.form_submit_button("Submit")
 
 if submitRefine:
 	buy = (item1*sts.refineRecipes[selected_refine]+item2)
-	sts.savedRefine['Craft Price'][selected_refine] = buy
-	sts.savedRefine['Sell Price'][selected_refine] = sell
-	sts.savedRefine['Profit Per Craft'][selected_refine] = sell-buy
-	sts.savedRefine['% Profit'][selected_refine] = str(round(round((sell-buy)/buy, 4)*100, 2))+'%'
+	sts.savedRefine['Craft Price'][selected_refine] = round(buy,2)
+	sts.savedRefine['Sell Price'][selected_refine] = round(sell,2)
+	sts.savedRefine['Profit Per Craft'][selected_refine] = round(sell-buy,2)
+	sts.savedRefine['% Profit'][selected_refine] = round(str(round(round((sell-buy)/buy, 4)*100, 2))+'%',2)
 	
 st.table(sts.savedRefine)
 	
