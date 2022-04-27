@@ -6,7 +6,7 @@ sts = st.session_state
 
 if 'init' not in sts:
 	sts.craftRecipies = {'thing1': [['thing1', 25], ['thing2', 50]],'thing2': [['thing1', 25]]}
-	sts.refineRecipies = {'4': 3, '4.1': 3, '5': 3, '5.1': 3, '6': 4, '6.1': 4, '7': 5, '7.1': 5, '8': 5, '8.1': 5}
+	sts.refineRecipes = {'4': 3, '4.1': 3, '5': 3, '5.1': 3, '6': 4, '6.1': 4, '7': 5, '7.1': 5, '8': 5, '8.1': 5}
 	sts.cityCaftBonus = {}
 	sts.cityRefineBonus = {}
 	sts.cities = ['Bridgewatch', 'Caerleon', 'Fort Sterling', 'Lymhurst', 'Thetford']
@@ -53,7 +53,7 @@ sell = form.number_input(f'Enter the sell price of {selected_refine}')
 submitRefine = form.form_submit_button("Submit")
 
 if submitRefine:
-	buy = (item1*sts.refinedRecipes[selected_refine]+item2)
+	buy = (item1*sts.refineRecipes[selected_refine]+item2)
 	sts.savedRefine['Craft Price'][selected_refine] = buy
 	sts.savedRefine['Sell Price'][selected_refine] = sell
 	sts.savedRefine['Profit Per Craft'][selected_refine] = sell-buy
