@@ -57,7 +57,7 @@ if submitRefine:
 	sts.savedRefine['Craft Price'][selected_refine] = round(buy,2)
 	sts.savedRefine['Sell Price'][selected_refine] = round(sell,2)
 	sts.savedRefine['Profit Per Craft'][selected_refine] = round(sell-buy,2)
-	sts.savedRefine['% Profit'][selected_refine] = (str(round(round((sell-buy)/buy, 4)*100, 2))+'%'
+	sts.savedRefine['% Profit'][selected_refine] = str(round(round((sell-buy)/buy, 4)*100, 2))+'%'
 	
 st.table(sts.savedRefine)
 	
