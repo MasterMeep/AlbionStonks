@@ -6,7 +6,7 @@ sts = st.session_state
 
 if 'init' not in sts:
 	sts.craftRecipies = {'thing1': [['thing1', 25], ['thing2', 50]],'thing2': [['thing1', 25]]}
-	sts.refineRecipies = {}
+	sts.refineRecipies = {'4': 3, '4.1': 3, '5': 3, '5.1': 3, '6': 4, '6.1': 4, '7': 5, '7.1': 5, '8': 5, '8.1': 5}
 	sts.cityCaftBonus = {}
 	sts.cityRefineBonus = {}
 	sts.cities = ['Bridgewatch', 'Caerleon', 'Fort Sterling', 'Lymhurst', 'Thetford']
@@ -43,8 +43,16 @@ if submittedCraft:
 st.table(sts.savedCraft)
 
 
-selected_refine = st.selectbox('Select An Item To Refine', sts.refineItems)
+selected_refine = st.selectbox('Select An Item To Refine', list(sts.refineItems.keys()))
 
 form = st.form("Refine Profits")
+item1 = form.number_input('Enter the price of one log')
+item2 = form.number_input('Enter the price of the plank')
 
 submitRefine = form.form_submit_button("Submit")
+
+if submitRefine:
+	sts.savedRefine[selected_refine] = item1*sts.refineRecipies[selected_refine]+item2
+	
+st.table(sts.savedRefine)
+	
