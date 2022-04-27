@@ -47,6 +47,5 @@ st.write(f'Max Profit/Craft: {max(sts.savedCraft, key=sts.savedCraft.get)}')
 selected_refine = st.selectbox('Select An Item To Refine', sts.refineItems)
 
 form = st.form("Refine Profits")
-selectedUnref = form.number_input(f'Enter Price For {selected_refine}', step=1, value=sts.savedRefine.get(selected_refine, 0)})
 
 submitRefine = form.form_submit_button("Submit")
