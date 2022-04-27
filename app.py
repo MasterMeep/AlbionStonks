@@ -43,7 +43,7 @@ if submittedCraft:
 st.table(sts.savedCraft)
 
 
-selected_refine = st.selectbox('Select An Item To Refine', list(sts.refineItems.keys()))
+selected_refine = st.selectbox('Select An Item To Refine', sts.refineItems)
 
 form = st.form("Refine Profits")
 item1 = form.number_input('Enter the price of one log')
