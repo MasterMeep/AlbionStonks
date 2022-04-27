@@ -5,7 +5,7 @@ import json
 sts = st.session_state
 
 if 'init' not in sts:
-	sts.craftrecipes = {'thing1': [['thing1', 25], ['thing2', 50]],'thing2': [['thing1', 25]]}
+	sts.craftRecipes = {'thing1': [['thing1', 25], ['thing2', 50]],'thing2': [['thing1', 25]]}
 	sts.refineRecipes = {'4': 3, '4.1': 3, '5': 3, '5.1': 3, '6': 4, '6.1': 4, '7': 5, '7.1': 5, '8': 5, '8.1': 5}
 	sts.cityCaftBonus = {}
 	sts.cityRefineBonus = {}
@@ -13,18 +13,18 @@ if 'init' not in sts:
 	sts.savedCraft = {'Craft Price': {}, 'Sell Price': {}, 'Profit Per Craft': {}, '% Profit': {}}
 	sts.savedRefine = {'Craft Price': {}, 'Sell Price': {}, 'Profit Per Craft': {}, '% Profit': {}}
 	sts.savedItems = {}
-	sts.craftItems = list(sts.craftrecipes.keys())
-	sts.refineItems = list(sts.refinerecipes.keys())
+	sts.craftItems = list(sts.craftRecipes.keys())
+	sts.refineItems = list(sts.refineRecipes.keys())
 	sts.init = 'init'
 
 selected_city = st.selectbox("Select A City", sts.cities)
 selected_item = st.selectbox('Select An Item To Craft', sts.craftItems)
 with st.form(key='columns_in_form'):
-    cols = st.columns(len(sts.craftrecipes[selected_item]))
+    cols = st.columns(len(sts.craftRecipes[selected_item]))
     num_of_inps = 0
     for i, col in enumerate(cols):
-        try:col.number_input(f"Enter price of {sts.craftrecipes[selected_item][i][0]}", key=sts.craftrecipes[selected_item][i][0], step=1, value=sts.savedItems[sts.craftrecipes[selected_item][i][0]])
-        except: col.number_input(f"Enter price of {sts.craftrecipes[selected_item][i][0]}", key=sts.craftrecipes[selected_item][i][0], step=1)
+        try:col.number_input(f"Enter price of {sts.craftRecipes[selected_item][i][0]}", key=sts.craftRecipes[selected_item][i][0], step=1, value=sts.savedItems[sts.craftRecipes[selected_item][i][0]])
+        except: col.number_input(f"Enter price of {sts.craftRecipes[selected_item][i][0]}", key=sts.craftRecipes[selected_item][i][0], step=1)
         num_of_inps += 1
     submittedCraft = st.form_submit_button('Submit')
 
@@ -32,7 +32,7 @@ craftSellPrice = st.number_input(f'Enter the sell price of {selected_item}', ste
 
 if submittedCraft:
 	running = 0
-	for i in (sts.craftrecipes[selected_item]):
+	for i in (sts.craftRecipes[selected_item]):
 		sts.savedItems[i[0]] = int(getattr(sts, i[0]))
 		running += int(getattr(sts, i[0]))*i[1]
 	sts.savedCraft['Craft Price'][selected_item] = running
