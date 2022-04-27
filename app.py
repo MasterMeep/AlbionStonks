@@ -48,11 +48,12 @@ selected_refine = st.selectbox('Select An Item To Refine', sts.refineItems)
 form = st.form("Refine Profits")
 item1 = form.number_input('Enter the price of one log', step=1)
 item2 = form.number_input('Enter the price of the plank', step=1) 
-sell = form.number_input(f'Enter the sell price', step=1)*1.4
+sell = form.number_input(f'Enter the sell price', step=1)
 
 submitRefine = form.form_submit_button("Submit")
 
 if submitRefine:
+	sell = sell*1.4
 	buy = (item1*sts.refineRecipes[selected_refine]+item2)
 	sts.savedRefine['Craft Price'][selected_refine] = round(buy,2)
 	sts.savedRefine['Sell Price'][selected_refine] = round(sell,2)
